@@ -109,7 +109,8 @@ If the signal is too bad try to change the channel. I believe to have luck with 
 
 Now edit `/etc/default/hostapd` and uncomment and change `#DAEMON_CONF="" ` to ``. In addition, change uncomment `#net.ipv4.ip_forward=1` in `/etc/sysctl.conf` which actually enables the package forwarding. 
 
-The rest of the settings including some firewall settings are done by the [wlan-service](wlan-service.sh) script. The script needs to be executed after login. I used a cronjob for this task. Easily done with `crontab -e` and `@reboot /bin/sh /home/pi/wlan-service.sh`. After reboot (assuming you (auto-)login into user `pi`) the wlan should be established.
+The rest of the settings including some firewall settings are done by the [wlan-service](wlan-service.sh) script. If you do not need a PPPoE connection but a simple ethernet connection than replace all `ppp0` with `eth0` (or the name of your ethernet adapter as mentioned above multiple times). The script needs to be executed after login. I used a cronjob for this task. Easily done with `crontab -e` and `@reboot /bin/sh /home/pi/wlan-service.sh`. After reboot (assuming you (auto-)login into user `pi`) the wlan should be established.
+
 
 ### Developer Notes
 
